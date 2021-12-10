@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/besin_graph"
+    app:startDestination="@id/besinListesiFragment">
+
+    <fragment
+        android:id="@+id/besinListesiFragment"
+        android:name="com.android.tarif.view.BesinListesiFragment"
+        android:label="BesinListesiFragment" >
+        <action
+            android:id="@+id/action_besinListesiFragment_to_besinDetayiFragment"
+            app:destination="@id/besinDetayiFragment" />
+        <action
+            android:id="@+id/action_besinListesiFragment_to_besinTarifFragment"
+            app:destination="@id/besinTarifFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/besinDetayiFragment"
+        android:name="com.android.tarif.view.BesinDetayiFragment"
+        android:label="BesinDetayiFragment" >
+        <action
+            android:id="@+id/action_besinDetayiFragment_to_besinListesiFragment"
+            app:destination="@id/besinListesiFragment" />
+        <argument
+            android:name="besinId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/besinTarifFragment"
+        android:name="com.android.tarif.view.BesinTarifFragment"
+        android:label="fragment_besin_tarif"
+        tools:layout="@layout/fragment_besin_tarif" >
+        <action
+            android:id="@+id/action_besinTarifFragment_to_besinListesiFragment"
+            app:destination="@id/besinListesiFragment" />
+        <argument
+            android:name="besinId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="bilgi"
+            app:argType="string"
+            android:defaultValue="fabdangeldim" />
+    </fragment>
+</navigation>
